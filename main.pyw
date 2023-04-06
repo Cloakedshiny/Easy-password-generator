@@ -23,13 +23,19 @@ def generate16():
      password = ''.join(secrets.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for i in range(16))
      passframe.insert('1.0',password+'\n')
 
+def delete():
+     passframe.delete('1.0',END)
+
 generatebutton1 = tk.Button(text="Generate a password (16 Characters)",relief=GROOVE,command=generate16)
 generatebutton2 = tk.Button(text="Generate a password (10 Characters)",relief=GROOVE,command=generate10)
 generatebutton3 = tk.Button(text="Generate a password (8 Characters)  ",relief=GROOVE,command=generate8)
+delete = tk.Button(text="                    Delete output                   ",relief=GROOVE,command=delete)
+
 
 root.geometry("350x385")
 generatebutton1.pack(expand=TRUE)
 generatebutton2.pack(expand=TRUE)
 generatebutton3.pack(expand=TRUE)
+delete.pack(expand=TRUE)
 passframe.pack(expand=TRUE)
 root.mainloop()
